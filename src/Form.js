@@ -22,7 +22,7 @@ function Form() {
 
   const handleCheats = (e) => {
     e.preventDefault();
-    alert('You already know the layout, deal with it!');
+    alert("It's done, deal with it!");
   };
 
   const handleSubmit = (e) => {
