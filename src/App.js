@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Table from './Table';
 import Form from './Form';
-import { set } from 'date-fns';
 
 function App() {
   const [layout, setLayout] = useState(false);
