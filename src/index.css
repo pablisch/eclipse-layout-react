@@ -101,6 +101,44 @@ nav a:hover {
   border-radius: 15px;
 }
 
+.warning {
+  background-color: #ba321d;
+  color: #ac9841;
+  padding: 8px 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.allow {
+  background-color: #3d404d;
+  color: #45843e;
+  padding: 8px 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.allow p {
+  font-size: 0.9rem;
+}
+
+.warning p {
+  color: #bbdd31;
+  font-size: 0.9rem;
+}
+
+.small-nav {
+  display: flex;
+  align-items: center;
+  background-color: #a1b26e;
+}
+
+.small-nav p {
+  color: #45843e;
+  font-size: 0.9rem;
+}
+
 header {
   background-color: #3d404d;
 }
