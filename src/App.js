@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Table from './Table';
 import Form from './Form';
+import { set } from 'date-fns';
 
 function App() {
   const [layout, setLayout] = useState(false);
+  const [generated, setGenrated] = useState(false);
   const [playerOrder, setPlayerOrder] = useState([]);
   const [players, setPlayers] = useState([]);
   // const regularPlayerList = ["Pablo", "Oriin", "Alex", "Barney", "Tim"];
@@ -57,6 +59,7 @@ function App() {
     // setAdd1(''); setAdd2(''); setAdd3(''); setAdd4(''); setAdd5(''); setAdd6('');
     console.log(players)
     setLayout(true);
+    setGenrated(true);
   };
 
   function shuffleArray(array) {
@@ -122,13 +125,13 @@ function App() {
     setPlayerOrder(players);
     console.log(players);
     getTableImage();
-  }, [layout])
+  }, [players])
 
   return (
     <div className="App">
       <Navbar layout={layout} setLayout={setLayout} handleSubmit={handleSubmit} />
       <Form pabloChecked={pabloChecked} setPabloChecked={setPabloChecked} orrinChecked={orrinChecked} setOrrinChecked={setOrrinChecked} alexChecked={alexChecked} setAlexChecked={setAlexChecked} barneyChecked={barneyChecked} setBarneyChecked={setBarneyChecked} timChecked={timChecked} setTimChecked={setTimChecked} add1={add1} add2={add2}  add3={add3} add4={add4} add5={add5} add6={add6} setAdd1={setAdd1} setAdd2={setAdd2}  setAdd3={setAdd3} setAdd4={setAdd4} setAdd5={setAdd5} setAdd6={setAdd6}/>
-      <Table layout={layout} players={players} layoutImage={layoutImage} />
+      <Table layout={layout} players={players} layoutImage={layoutImage} generated={generated} />
     </div>
   );
 }

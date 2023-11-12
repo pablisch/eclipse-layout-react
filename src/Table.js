@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Table({ layout, players, layoutImage }) {
+function Table({ layout, players, layoutImage, generated }) {
   console.log("In Table", players)
 
   return (
@@ -21,7 +21,7 @@ function Table({ layout, players, layoutImage }) {
         <section className="right-side">
           <section className="boxes">
               <div className="container">
-                {(layout && players.length < 5) ? null : (
+                {(generated && players.length < 5) ? null : (
                   <div className="box five">
                 <h2 id="five"><i className="fa-solid fa-ghost"></i>{players[4] ? players[4] : 'Player 5'}</h2>
               </div>
@@ -42,7 +42,7 @@ function Table({ layout, players, layoutImage }) {
                 <div className="box four">
                   <h2 id = "four"><i className="fa-solid fa-ghost"></i>{players[3] ? players[3] : 'Player 4'}</h2>
                 </div>
-                {(layout && players.length < 6) ? null : (<div className="box six">
+                {(generated && players.length < 6) ? null : (<div className="box six">
                   <h2 id = "six"><i className="fa-solid fa-ghost"></i>{players[5] ? players[5] : 'Player 6'}</h2>
                 </div>)}
                 
