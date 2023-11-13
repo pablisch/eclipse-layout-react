@@ -5,7 +5,7 @@ function Table({ layout, players, layoutImage, generated }) {
 
   return (
     <div>
-      <section className="maincols">
+      {/* <section className="maincols">
       <section className="container">
         
         <section className="left-side">
@@ -51,7 +51,7 @@ function Table({ layout, players, layoutImage, generated }) {
           </section>
 
         </section>
-      </section>
+      </section> */}
     </div>
   );
 }

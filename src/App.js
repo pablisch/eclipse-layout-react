@@ -4,37 +4,30 @@ import Table from './Table';
 import Form from './Form';
 
 function App() {
+  const regularPlayerList = [{ id: 1, name: "Pablo", playing: true }, { id: 2, name: "Orrin", playing: true }, { id: 3, name: "Alex", playing: true }, { id: 4, name: "Barney", playing: true }, { id: 5, name: "Tim", playing: true },];
+  const [players, setPlayers] = useState(regularPlayerList);
+  const [addPlayer, setAddPlayer] = useState('')
+
   const [layout, setLayout] = useState(false);
   const [generated, setGenrated] = useState(false);
-  const [playerOrder, setPlayerOrder] = useState([]);
-  const [players, setPlayers] = useState([]);
-  // const regularPlayerList = ["Pablo", "Oriin", "Alex", "Barney", "Tim"];
-
-  const [pabloChecked, setPabloChecked] = useState(true);
-  const [orrinChecked, setOrrinChecked] = useState(true);
-  const [alexChecked, setAlexChecked] = useState(true);
-  const [barneyChecked, setBarneyChecked] = useState(true);
-  const [timChecked, setTimChecked] = useState(true);
-
-  const [add1, setAdd1] = useState('');
-  const [add2, setAdd2] = useState('');
-  const [add3, setAdd3] = useState('');
-  const [add4, setAdd4] = useState('');
-  const [add5, setAdd5] = useState('');
-  const [add6, setAdd6] = useState('');
-
   const [layoutImage, setLayoutImage] = useState('images/playTable.png');
+
+  function handlePlayerPlaying(name) {
+    setPlayers(players => players.map(player => player.name === name ? {...player, playing: !player.playing} : player))
+    console.log("CHANGING PLAYER STATUS", name)
+  }
+
+  function handleNewPlayer(name) {
+    const newPlayer = { id: Date.now(), name: name, playing: true };
+    setPlayers(players => [...players, newPlayer]);
+    console.log("NEW PLAYER", name);
+  }
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPlayers([]);
+    // setPlayers([]);
     let count = 0;
-    pabloChecked && count++;
-    orrinChecked && count++;
-    alexChecked && count++;
-    barneyChecked && count++;
-    timChecked && count++;
-    add1 && count++; add2 && count++; add3 && count++; add4 && count++; add5 && count++; add6 && count++;
     if (count > 6) {
       alert('Eclipse has a maximum of 6 players.');
       return;
@@ -43,19 +36,6 @@ function App() {
       return;
     }
 
-    pabloChecked && setPlayers((players) => [...players, 'Pablo']);
-    orrinChecked && setPlayers((players) => [...players, 'Orrin']);
-    alexChecked && setPlayers((players) => [...players, 'Alex']);
-    barneyChecked && setPlayers((players) => [...players, 'Barney']);
-    timChecked && setPlayers((players) => [...players, 'Tim']);
-    add1 && setPlayers((players) => [...players, add1]);
-    add2 && setPlayers((players) => [...players, add2]);
-    add3 && setPlayers((players) => [...players, add3]);
-    add4 && setPlayers((players) => [...players, add4]);
-    add5 && setPlayers((players) => [...players, add5]);
-    add6 && setPlayers((players) => [...players, add6]);
-    
-    // setAdd1(''); setAdd2(''); setAdd3(''); setAdd4(''); setAdd5(''); setAdd6('');
     console.log(players)
     setLayout(true);
     setGenrated(true);
@@ -117,19 +97,18 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    console.log("LAYOUT CHANGED", layout)
-    console.log(players);
-    shuffleArray(players);
-    setPlayerOrder(players);
-    console.log(players);
-    getTableImage();
-  }, [players])
+  // useEffect(() => {
+  //   console.log("LAYOUT CHANGED", layout)
+  //   console.log(players);
+  //   // shuffleArray(players);
+  //   console.log(players);
+  //   getTableImage();
+  // }, [players])
 
   return (
     <div className="App">
       <Navbar layout={layout} setLayout={setLayout} handleSubmit={handleSubmit} />
-      <Form pabloChecked={pabloChecked} setPabloChecked={setPabloChecked} orrinChecked={orrinChecked} setOrrinChecked={setOrrinChecked} alexChecked={alexChecked} setAlexChecked={setAlexChecked} barneyChecked={barneyChecked} setBarneyChecked={setBarneyChecked} timChecked={timChecked} setTimChecked={setTimChecked} add1={add1} add2={add2}  add3={add3} add4={add4} add5={add5} add6={add6} setAdd1={setAdd1} setAdd2={setAdd2}  setAdd3={setAdd3} setAdd4={setAdd4} setAdd5={setAdd5} setAdd6={setAdd6}/>
+      <Form players={players} handlePlayerPlaying={handlePlayerPlaying} addPlayer={addPlayer} setAddPlayer={setAddPlayer} handleNewPlayer={handleNewPlayer} />
       <Table layout={layout} players={players} layoutImage={layoutImage} generated={generated} />
     </div>
   );
