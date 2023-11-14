@@ -35,6 +35,12 @@ Refreshing the page will reset any player selections.
 * Above the players' names are arranged around the table.
 * In this five player example, the void space is indicated between Pablo and Orrin.
 
+Pressing the `Allow Regeneration` button will prompt the appearance of `confirm` and `deny` buttons.
+
+![Confirm or Deny](public/images/confirm-deny-buttons.png)
+
+Choosing `Confirm Regeneration` will not immeadiately regenerate a new layout but will enable the original `Generate Game Layout` button which is automatically disabled on first use as the game layout is intended to be final.
+
 ## Planned Improvements
 
 Whilst the app works fine and does what it is supposed to do, there are a few changes that I would like to make in the future:
