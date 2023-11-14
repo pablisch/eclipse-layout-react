@@ -1,70 +1,43 @@
-# Eclipse Stup Generator
+# Eclipse Setup Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a react app building on the earlier [eclipse setup](https://github.com/pablisch/eclipse-game-setup) app which I made for the purpose: 
+* practicing React, in addition to JavaScript, HTML and CSS
+* transposing a vanilla JavaScript project into React
+* providing a simple app randomising the start setup of the board game Eclipse by:
+  * randomising seating positions
+  * randomising gaps between players
 
-## Available Scripts
+Other start parameters remain decided by a die roll, i.e. the highest die roll decides the starting player, and species are chosen by the players in reverse order of play.
+It would be easy enough to include these features into the app but the physical act of die rolling is a part of the game so they were purposefully excluded.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+1. Clone the repository.
+2. Run `npm install` to install dependencies.
+3. Any additinal regular players may be entered into the `regularPlayerList` on line 8 of `App.js`.
+4. Run `npm start` in the terminal to start the server.
+5. The app will open in the browser at `localhost:3000` by default.
+6. Check or uncheck any regular players as required
+7. Enter any additional players using the form provided.
+8. When ready, press the `Generate Game Layout` button in the navbar.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The app will randomly assign seating positions and any gaps between players.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. There is an `Allow Regeneration` option which, after confirmation, will allow the setup to be generated again. The player settings are deliberatly left unchanged but may be manually edited before regeneration.
 
-### `npm test`
+Refreshing the page will reset any player selections.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Example use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Example use](public/images/example-use.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Above the players' names are arranged around the table.
+* In this five player example, the void space is indicated between Tim and Orrin.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Planned Improvements
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Whilst the app works fine and does what it is supposed to do, there are a few changes that I would like to make in the future:
+1. The app uses different images for each layout and I would like to make it so that the table image remains constant and there is one layout image for each player count that is rotated to match the possible layouts.
+2. Create a database to store the players' names which may be added, edited or deleted. Stored names can be selected from a selctor or checkboxes on the configuration page.
+3. Ability to store the generated layout in the database for historical records.
