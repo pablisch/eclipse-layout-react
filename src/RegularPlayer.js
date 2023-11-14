@@ -1,5 +1,4 @@
 function RegularPlayer({ player, handlePlayerPlaying }) {
-  console.log('player in reg player sing.:', player);
 
   if (!player) {
     return null;

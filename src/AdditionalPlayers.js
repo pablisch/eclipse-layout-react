@@ -1,6 +1,6 @@
 function AdditionalPlayers({ addPlayer, setAddPlayer, handleNewPlayer }) {
 
-  const handleSubmit = (e) => {
+  const handleAddPlayerSubmit = (e) => {
     e.preventDefault(); 
     handleNewPlayer(addPlayer);
     setAddPlayer('')
@@ -8,7 +8,7 @@ function AdditionalPlayers({ addPlayer, setAddPlayer, handleNewPlayer }) {
 
   return (
     <div className='others'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleAddPlayerSubmit}>
         <label htmlFor=''>Name: </label>
         <input
           id='add1'

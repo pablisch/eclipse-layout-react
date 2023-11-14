@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Navbar({ layout, setLayout, handleSubmit }) {
+function Navbar({ generated, setGenerated, handleMainFormSubmit }) {
   const [confirmation, setConfirmation] = useState(false);
 
   const handleCheats = (e) => {
@@ -16,38 +16,41 @@ function Navbar({ layout, setLayout, handleSubmit }) {
   const handleRegenerationConfirmation = (e) => {
     e.preventDefault();
     setConfirmation(false);
-    setLayout(false);
+    setGenerated(false);
   };
 
   const handleRegenerationDenial = (e) => {
     e.preventDefault();
     setConfirmation(false);
-    // setLayout(false);
   };
 
   return (
     <div>
-      <nav className="navbar">
-      <div className="container">
-        <div className="logo">Eclipse Layout Generator</div>
-        <ul className="nav">
+      <nav className='navbar'>
+        <div className='container'>
+          <div className='logo'>Eclipse Layout Generator</div>
+          <ul className='nav'>
             <li className={confirmation ? 'warning' : 'hidden'}>
-              <p onClick={handleRegenerationConfirmation}>Confirm Regeneration</p>
-          </li>
+              <p onClick={handleRegenerationConfirmation}>
+                Confirm Regeneration
+              </p>
+            </li>
             <li className={confirmation ? 'generate small-nav' : 'hidden'}>
               <p onClick={handleRegenerationDenial}>Deny Regeneration</p>
-          </li>
-            <li className={(layout && !confirmation) ? 'allow' : 'hidden'}>
+            </li>
+            <li className={generated && !confirmation ? 'allow' : 'hidden'}>
               <p onClick={handleRegeneration}>Allow Regeneration</p>
-          </li>
-          <li className={layout ? 'generated' : 'generate'}>
-              <p onClick={layout ? handleCheats : handleSubmit}>{ layout ? 'Deal With Game Layout' : 'Generate Game Layout' }</p>
-          </li>
-        </ul>
-      </div>
+            </li>
+            <li className={generated ? 'generated' : 'generate'}>
+              <p onClick={generated ? handleCheats : handleMainFormSubmit}>
+                {generated ? 'Deal With Game Layout' : 'Generate Game Layout'}
+              </p>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -1,7 +1,6 @@
 import RegularPlayer from "./RegularPlayer";
 
 function RegularPlayers({ players, handlePlayerPlaying }) {
-  console.log('players in reg players:', players)
 
   return (
     <div className="regulars">
