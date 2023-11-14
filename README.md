@@ -30,10 +30,10 @@ Refreshing the page will reset any player selections.
 
 ## Example use
 
-![Example use](public/images/example-use.png)
+![Example use](public/images/example-use-2.png)
 
 * Above the players' names are arranged around the table.
-* In this five player example, the void space is indicated between Tim and Orrin.
+* In this five player example, the void space is indicated between Pablo and Orrin.
 
 ## Planned Improvements
 

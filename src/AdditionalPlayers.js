@@ -11,12 +11,12 @@ function AdditionalPlayers({ addPlayer, setAddPlayer, handleNewPlayer }) {
       <form onSubmit={handleAddPlayerSubmit}>
         <label htmlFor=''>Name: </label>
         <input
-          id='add1'
+          id='add'
           type='text'
           value={addPlayer}
           onChange={(e) => setAddPlayer(e.target.value)}
         />
-        <button type="submit">Add new player</button>
+        <button className="add-player-btn" type="submit">Add new player</button>
       </form>
     </div>
   );
