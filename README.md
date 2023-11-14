@@ -44,6 +44,7 @@ Choosing `Confirm Regeneration` will not immeadiately regenerate a new layout bu
 ## Planned Improvements
 
 Whilst the app works fine and does what it is supposed to do, there are a few changes that I would like to make in the future:
-1. The app uses different images for each layout and I would like to make it so that the table image remains constant and there is one layout image for each player count that is rotated to match the possible layouts.
-2. Create a database to store the players' names which may be added, edited or deleted. Stored names can be selected from a selctor or checkboxes on the configuration page.
-3. Ability to store the generated layout in the database for historical records.
+1. The app currently only works for 4 and 5 player arrangments as these are the most complex, being the only configurations with assymetric layouts. Other configurations may come later.
+2. The app uses different images for each layout and I would like to make it so that the table image remains constant and there is one layout image for each player count that is rotated to match the possible layouts.
+3. Create a database to store the players' names which may be added, edited or deleted. Stored names can be selected from a selctor or checkboxes on the configuration page.
+4. Ability to store the generated layout in the database for historical records.

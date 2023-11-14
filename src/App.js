@@ -35,14 +35,17 @@ function App() {
     e.preventDefault();
     const playingPlayersNames = players.filter(player => player.playing).map(player => player.name)
     console.log(playingPlayersNames)
-    if (playingPlayersNames > 6) {
+    if (playingPlayersNames.length > 6) {
       alert('Eclipse has a maximum of 6 players.');
       return;
-    } else if (playingPlayersNames < 4) {
+    } else if (playingPlayersNames.length < 4) {
       alert(
         'With less than 4 players, you should be able to work this out yourselves!'
         );
         return;
+    } else if (playingPlayersNames.length === 6) {
+      alert('Apologies but this app currenlty only provides layouts for 4 or 5 player games.');
+      return;
       }
     setPlayerList(playingPlayersNames)
       
