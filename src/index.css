@@ -149,10 +149,24 @@ header {
   line-height: 1.2;
 }
 
-.table img {
-  max-width: 800px;
+.table {
+  position: relative;
+}
+
+/* old table image */
+#table-base { 
+  width: 100%;
+  /* max-width: 800px; */
   border-radius: 10px;
   box-shadow: 2px 5px 10px rgba(0,0,0, 0.6); 
+}
+
+/* new layout image */
+#layout {
+  max-width: 300px;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
 }
 
 .boxes .container {

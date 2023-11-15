@@ -2,49 +2,62 @@ import { useState, useEffect } from 'react';
 
 function Table({ generate, playerList, generatedCount }) {
   const [tableImage, setTableImage] = useState('images/playTable.png');
+  const [rotation, setRotation] = useState({ transform: 'translate(-50%, -50%) rotate(-16deg)' });
+  let numOfPlayers = 6;
 
   console.log('In Table - player list', playerList);
+  if (playerList.length > 0) numOfPlayers = playerList.length;
 
   useEffect(() => {
-    getTableImage();
+    getHexRotationStyle()
+    console.log(rotation)
+    // getTableImage();
     shuffleArray(playerList);
   }, [playerList])
 
-  function getTableImage() {
-    console.log(playerList.length);
-    if (playerList.length === 4) {
-      if (Math.floor(Math.random() * (2 - 1 + 1) + 1) === 1) {
-        setTableImage('images/playTableFourV1b.png');
-        console.log('tableImage:', tableImage);
-      } else {
-        setTableImage('images/playTableFourV2b.png');
-        console.log('tableImage:', tableImage);
-      }
-    }
+  function getHexRotationStyle() {
+    if (playerList.length === 6) {
+      setRotation({ transform: 'translate(-50%, -50%) rotate(-15deg)' });
+    } else if (playerList.length === 5) {
+      setRotation({ transform: `translate(-50%, -50%) rotate(${fivePlayerRotation()}deg)` });
+    } else if (playerList.length === 4) {
+      setRotation({ transform: `translate(-50%, -50%) rotate(${fourPlayerRotation()}deg)` });
+    } else if (playerList.length === 3) {
+      setRotation({ transform: 'translate(-50%, -50%) rotate(30deg)' });
+    } else if (playerList.length === 2) {
+      setRotation({ transform: 'translate(-50%, -50%) rotate(0deg)' });
+    } 
+  }
 
-    if (playerList.length === 5) {
-      var randomNumber = Math.floor(Math.random() * (5 - 1 + 1) + 1);
-      switch (randomNumber) {
-        case 1:
-          setTableImage('images/playTableFiveV1b.png');
-          break;
-        case 2:
-          setTableImage('images/playTableFiveV2b.png');
-          break;
-        case 3:
-          setTableImage('images/playTableFiveV3b.png');
-          break;
-        case 4:
-          setTableImage('images/playTableFiveV4b.png');
-          break;
-        case 5:
-          setTableImage('images/playTableFiveV5b.png');
-          break;
-        default:
-          setTableImage('images/playTable.png');
-          break;
-      }
-    }
+  function fourPlayerRotation() {
+    return (Math.floor(Math.random() * (2 - 1 + 1) + 1)) * 90 - 10
+  }
+  
+  function fivePlayerRotation() {
+    return (Math.floor(Math.random() * (5 - 1 + 1) + 1)) * 72 - 15
+    // if (playerList.length === 5) {
+    //   var randomNumber = Math.floor(Math.random() * (5 - 1 + 1) + 1);
+    //   switch (randomNumber) {
+    //     case 1:
+    //       setTableImage('images/playTableFiveV1b.png');
+    //       break;
+    //     case 2:
+    //       setTableImage('images/playTableFiveV2b.png');
+    //       break;
+    //     case 3:
+    //       setTableImage('images/playTableFiveV3b.png');
+    //       break;
+    //     case 4:
+    //       setTableImage('images/playTableFiveV4b.png');
+    //       break;
+    //     case 5:
+    //       setTableImage('images/playTableFiveV5b.png');
+    //       break;
+    //     default:
+    //       setTableImage('images/playTable.png');
+    //       break;
+    //   }
+    // }
   }
 
   function shuffleArray(array) {
@@ -95,7 +108,9 @@ function Table({ generate, playerList, generatedCount }) {
             </div>
           </section>
             <section className="table">
-              {tableImage && <img className='image' src={tableImage} alt='table generate'/>}
+              {/* {tableImage && <img id='old-table' src={tableImage} alt='table' />} */}
+              <img id='table-base' src='images/playTable.png' alt="table-base" />
+              <img src={`images/eclipse-layout-${numOfPlayers}.png`} alt="Eclipse layout for 6 players" id='layout' style={rotation} />
           </section>
             <section className="boxes">
               <div className="container">

@@ -38,15 +38,12 @@ function App() {
     if (playingPlayersNames.length > 6) {
       alert('Eclipse has a maximum of 6 players.');
       return;
-    } else if (playingPlayersNames.length < 4) {
+    } else if (playingPlayersNames.length < 2) {
       alert(
-        'With less than 4 players, you should be able to work this out yourselves!'
+        'You need at least 2 players to play Eclipse, even if they are both you!'
         );
         return;
-    } else if (playingPlayersNames.length === 6) {
-      alert('Apologies but this app currenlty only provides layouts for 4 or 5 player games.');
-      return;
-      }
+    } 
     setPlayerList(playingPlayersNames)
       
     console.log('players:', players);
