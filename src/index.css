@@ -101,6 +101,25 @@ nav a:hover {
   border-radius: 15px;
 }
 
+.calculator-link {
+  background-color: #0a3464;
+  border: 1px solid #fff;
+  width: 100px;
+  padding: 1px 8px;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-link a {
+  color: rgb(152, 206, 250);
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: 200;
+}
+
 .warning {
   background-color: #ba321d;
   color: #ac9841;

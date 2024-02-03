@@ -30,13 +30,13 @@ function Navbar({ generated, setGenerated, handleMainFormSubmit }) {
         <div className='container'>
           <div className='logo'>Eclipse Layout Generator</div>
           <ul className='nav'>
+            <li className={confirmation ? 'generate small-nav' : 'hidden'}>
+              <p onClick={handleRegenerationDenial}>Deny Regeneration</p>
+            </li>
             <li className={confirmation ? 'warning' : 'hidden'}>
               <p onClick={handleRegenerationConfirmation}>
                 Confirm Regeneration
               </p>
-            </li>
-            <li className={confirmation ? 'generate small-nav' : 'hidden'}>
-              <p onClick={handleRegenerationDenial}>Deny Regeneration</p>
             </li>
             <li className={generated && !confirmation ? 'allow' : 'hidden'}>
               <p onClick={handleRegeneration}>Allow Regeneration</p>
@@ -45,6 +45,14 @@ function Navbar({ generated, setGenerated, handleMainFormSubmit }) {
               <p onClick={generated ? handleCheats : handleMainFormSubmit}>
                 {generated ? 'Deal With Game Layout' : 'Generate Game Layout'}
               </p>
+            </li>
+            <li className={`generate calculator-link ${!confirmation ? '' : 'hidden'}`}>
+              <a
+                href='https://eclipse-battle-calculator.onrender.com'
+                target='_blank'
+                rel='noopener noreferrer'>
+                Battle Calculator
+              </a>
             </li>
           </ul>
         </div>
